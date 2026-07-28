@@ -564,26 +564,46 @@ const musicFab = $('#fab-music');
 const musicIcon = musicFab?.querySelector('i');
 
 if (bgMusic && musicFab) {
+  const playlist = [
+    { name: 'Tema Wild West', src: 'music.mp3' },
+    { name: 'Lagu Awan', src: 'lagu awan.mp3' }
+  ];
+  let trackIndex = 0;
   let isPlaying = false;
 
-  const toggleMusic = async () => {
-    if (isPlaying) {
-      bgMusic.pause();
-      musicFab.classList.remove('playing');
-      if (musicIcon) musicIcon.className = 'fas fa-volume-mute';
-      musicFab.querySelector('.fab-tooltip').textContent = 'Mainkan Musik';
-      isPlaying = false;
-      showToast('🔇 Musik dinonaktifkan', 'info');
+  const playTrack = async (index) => {
+    bgMusic.src = playlist[index].src;
+    try {
+      await bgMusic.play();
+      isPlaying = true;
+      musicFab.classList.add('playing');
+      if (musicIcon) musicIcon.className = 'fas fa-music';
+      musicFab.querySelector('.fab-tooltip').textContent = `Memutar: ${playlist[index].name}`;
+      showToast(`🎵 Memutar: ${playlist[index].name}`, 'success');
+    } catch (err) {
+      showToast('⚠️ Izinkan browser untuk memutar musik', 'error');
+    }
+  };
+
+  const stopMusic = () => {
+    bgMusic.pause();
+    isPlaying = false;
+    musicFab.classList.remove('playing');
+    if (musicIcon) musicIcon.className = 'fas fa-volume-mute';
+    musicFab.querySelector('.fab-tooltip').textContent = 'Mainkan Musik';
+    showToast('🔇 Musik dinonaktifkan', 'info');
+  };
+
+  const toggleMusic = () => {
+    if (!isPlaying) {
+      trackIndex = 0;
+      playTrack(trackIndex);
     } else {
-      try {
-        await bgMusic.play();
-        musicFab.classList.add('playing');
-        if (musicIcon) musicIcon.className = 'fas fa-music';
-        musicFab.querySelector('.fab-tooltip').textContent = 'Matikan Musik';
-        isPlaying = true;
-        showToast('🎵 Memutar Musik Wild West!', 'success');
-      } catch (err) {
-        showToast('⚠️ Izinkan browser untuk memutar musik', 'error');
+      if (trackIndex === 0) {
+        trackIndex = 1;
+        playTrack(trackIndex);
+      } else {
+        stopMusic();
       }
     }
   };
