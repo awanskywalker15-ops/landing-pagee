@@ -232,7 +232,7 @@
                             <a href="#contact" class="btn-gold" id="hero-cta-1">
                                 <i class="fas fa-headset"></i> Konsultasi Gratis
                             </a>
-                            <a href="https://wa.me/6287743453453" target="_blank" rel="noopener noreferrer"
+                            <a href="https://wa.me/6285742553216" target="_blank" rel="noopener noreferrer"
                                 class="btn-wood" id="hero-cta-2">
                                 <i class="fab fa-whatsapp"></i> Hubungi Kami
                             </a>
@@ -320,9 +320,11 @@
                 <!-- Visual Card -->
                 <div data-aos="fade-right">
                     <div class="about-card-wrapper">
-                        <div class="about-card-inner">
-                            <div class="about-card-badge" aria-hidden="true">🤠</div>
-                            <h3>Mitra IT Andalan Anda</h3>
+                        <div class="about-card-inner" style="padding-top: 0; padding-left: 0; padding-right: 0; overflow: hidden;">
+                            <img src="cihuy.jpg" alt="Tim Smart Network" style="width: 100%; height: 240px; object-fit: cover; margin-bottom: 1.5rem;">
+                            <div style="padding: 0 2.5rem 3rem;">
+                                <div class="about-card-badge" aria-hidden="true" style="margin-top: -3.5rem; position: relative; z-index: 2; border: 4px solid var(--surface);">🤠</div>
+                                <h3>Mitra IT Andalan Anda</h3>
                             <p>
                                 <strong>Smart Network</strong> hadir sejak 2016 sebagai mitra teknologi terpercaya
                                 bagi rumah, sekolah, kantor, dan perusahaan di seluruh Indonesia.
@@ -343,6 +345,7 @@
                                 <span
                                     style="padding:0.3rem 0.75rem;background:rgba(201,148,26,0.12);border:1px solid rgba(201,148,26,0.25);border-radius:100px;font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Garansi
                                     Layanan</span>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -696,7 +699,7 @@
                             <div class="testimonial-author">
                                 <div class="testimonial-avatar">BW</div>
                                 <div>
-                                    <div class="testimonial-name">Budi Wibowo, S.Pd.</div>
+                                    <div class="testimonial-name">SUGIYONO, S.Pd, M.Si</div>
                                     <div class="testimonial-role">Kepala Sekolah, SMK N 2 Surakarta</div>
                                 </div>
                             </div>
@@ -789,6 +792,220 @@
     </section>
 
     <!-- ============================================================
+     MINI GAME SECTION
+     ============================================================ -->
+    <section id="minigame" aria-label="Mini Game Edukasi Jaringan" style="background:var(--surface-2); padding:5rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-gamepad"></i> Mini Game</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Quiz <span>Edukasi Jaringan</span></h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-gamepad title-ornament-star" style="color:var(--wood-pale);font-size:1rem;"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
+                    Uji pengetahuan jaringan Anda! Jawab <strong>8 soal dengan benar</strong> dan dapatkan <strong style="color:var(--gold);">DISKON 30%</strong> untuk layanan Smart Network.
+                </p>
+            </div>
+
+            <!-- Game Card -->
+            <div data-aos="zoom-in" data-aos-delay="200" style="max-width:720px;margin:0 auto;">
+                <div id="game-box" style="background:var(--surface);border:2px solid var(--border-gold);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+
+                    <!-- Game Header -->
+                    <div style="background:var(--grad-wood);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                        <div style="display:flex;align-items:center;gap:0.75rem;">
+                            <div style="font-size:1.5rem;">🤠</div>
+                            <div>
+                                <div style="font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream-3);">SMART NETWORK</div>
+                                <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-bright);font-weight:700;">Network Quiz Challenge</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:1.5rem;align-items:center;">
+                            <div style="text-align:center;">
+                                <div id="game-score-display" style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold-bright);line-height:1;">0</div>
+                                <div style="font-size:0.7rem;color:var(--cream-3);letter-spacing:0.12em;text-transform:uppercase;">SKOR</div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div id="game-lives" style="font-size:1.3rem;line-height:1;">❤️❤️❤️</div>
+                                <div style="font-size:0.7rem;color:var(--cream-3);letter-spacing:0.12em;text-transform:uppercase;">NYAWA</div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div id="game-q-counter" style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold-bright);line-height:1;">0/10</div>
+                                <div style="font-size:0.7rem;color:var(--cream-3);letter-spacing:0.12em;text-transform:uppercase;">SOAL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div style="height:5px;background:rgba(201,148,26,0.15);">
+                        <div id="game-progress" style="height:100%;width:0%;background:var(--grad-gold);transition:width 0.5s ease;"></div>
+                    </div>
+
+                    <!-- Game Start Screen -->
+                    <div id="game-start" style="padding:3rem 2rem;text-align:center;">
+                        <div style="font-size:4rem;margin-bottom:1rem;">🎯</div>
+                        <h3 style="font-size:1.5rem;color:var(--text-dark);margin-bottom:0.75rem;">Siap Jadi Cowboy Jaringan?</h3>
+                        <p style="color:var(--text-muted);margin-bottom:0.5rem;line-height:1.7;">Jawab <strong>10 soal</strong> tentang dunia jaringan komputer.</p>
+                        <p style="color:var(--text-muted);margin-bottom:2rem;line-height:1.7;">Skor <strong style="color:var(--gold);">≥ 80 poin</strong> → Dapatkan kode diskon <strong style="color:var(--gold);">30%!</strong></p>
+                        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+                            <div style="padding:0.75rem 1.25rem;background:rgba(201,148,26,0.08);border:1px solid var(--border-gold);border-radius:var(--radius-md);font-size:0.85rem;color:var(--text-muted);">✅ 10 Pertanyaan</div>
+                            <div style="padding:0.75rem 1.25rem;background:rgba(201,148,26,0.08);border:1px solid var(--border-gold);border-radius:var(--radius-md);font-size:0.85rem;color:var(--text-muted);">❤️ 3 Nyawa</div>
+                            <div style="padding:0.75rem 1.25rem;background:rgba(201,148,26,0.08);border:1px solid var(--border-gold);border-radius:var(--radius-md);font-size:0.85rem;color:var(--text-muted);">🏆 Diskon 30%</div>
+                        </div>
+                        <button id="game-start-btn" onclick="startGame()" style="padding:0.9rem 2.5rem;background:var(--grad-gold);color:var(--wood-darkest);border:none;border-radius:var(--radius-md);font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow-gold);">
+                            <i class="fas fa-play"></i> Mulai Quiz!
+                        </button>
+                    </div>
+
+                    <!-- Question Screen -->
+                    <div id="game-question" style="padding:2.5rem 2rem;display:none;">
+                        <div id="game-category" style="font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;"></div>
+                        <h3 id="game-q-text" style="font-size:1.2rem;color:var(--text-dark);margin-bottom:2rem;line-height:1.5;min-height:80px;"></h3>
+                        <div id="game-options" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;"></div>
+                        <div id="game-feedback" style="margin-top:1.25rem;padding:0.75rem 1rem;border-radius:var(--radius-md);display:none;font-size:0.88rem;font-weight:600;"></div>
+                    </div>
+
+                    <!-- Result Screen -->
+                    <div id="game-result" style="padding:3rem 2rem;text-align:center;display:none;">
+                        <div id="result-emoji" style="font-size:4rem;margin-bottom:1rem;"></div>
+                        <h3 id="result-title" style="font-size:1.5rem;color:var(--text-dark);margin-bottom:0.5rem;"></h3>
+                        <p id="result-desc" style="color:var(--text-muted);margin-bottom:1.5rem;"></p>
+                        <div id="result-score-box" style="background:rgba(201,148,26,0.08);border:2px solid var(--border-gold);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;"></div>
+                        <div id="result-coupon" style="display:none;background:var(--grad-wood);border-radius:var(--radius-md);padding:1.5rem;margin-bottom:2rem;position:relative;overflow:hidden;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,0.03) 10px,rgba(255,255,255,0.03) 20px);"></div>
+                            <div style="position:relative;z-index:1;">
+                                <div style="font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream-3);margin-bottom:0.5rem;">🎉 SELAMAT! Kode Diskon Anda:</div>
+                                <div id="coupon-code" style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--gold-bright);letter-spacing:0.15em;margin-bottom:0.5rem;"></div>
+                                <div style="font-size:0.8rem;color:var(--cream-3);">Tunjukkan kode ini saat menghubungi Smart Network • Berlaku 30 hari</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                            <button onclick="startGame()" style="padding:0.75rem 1.75rem;background:var(--grad-gold);color:var(--wood-darkest);border:none;border-radius:var(--radius-md);font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">
+                                <i class="fas fa-redo"></i> Main Lagi
+                            </button>
+                            <a href="#contact" style="padding:0.75rem 1.75rem;background:var(--grad-tech);color:white;border:none;border-radius:var(--radius-md);font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">
+                                <i class="fas fa-phone"></i> Hubungi Kami
+                            </a>
+                        </div>
+                    </div>
+
+                </div><!-- /game-box -->
+            </div><!-- /game wrapper -->
+        </div>
+    </section>
+
+    <!-- ============================================================
+     SPEED TEST SECTION
+     ============================================================ -->
+    <section id="speedtest" aria-label="Tes Kecepatan Jaringan" style="background:var(--surface);padding:5rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-tachometer-alt"></i> Speed Test</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Tes <span>Kecepatan Jaringan</span></h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-bolt title-ornament-star" style="color:var(--wood-pale);font-size:1rem;"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
+                    Cek seberapa cepat koneksi internet Anda sekarang. Jika hasilnya tidak memuaskan — Smart Network siap membantu!
+                </p>
+            </div>
+
+            <div data-aos="zoom-in" data-aos-delay="200" style="max-width:700px;margin:0 auto;">
+                <div style="background:var(--surface-2);border:2px solid var(--border-gold);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+
+                    <!-- Header -->
+                    <div style="background:var(--grad-wood);padding:1.25rem 2rem;display:flex;align-items:center;gap:0.75rem;">
+                        <div style="width:40px;height:40px;background:var(--grad-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">⚡</div>
+                        <div>
+                            <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold-bright);">Smart Network Speed Test</div>
+                            <div style="font-size:0.75rem;color:var(--cream-3);">Powered by Real-Time Measurement</div>
+                        </div>
+                    </div>
+
+                    <!-- Speedometer -->
+                    <div style="padding:2.5rem 2rem;text-align:center;">
+                        <!-- SVG Gauge -->
+                        <div style="position:relative;width:220px;height:130px;margin:0 auto 1.5rem;">
+                            <svg viewBox="0 0 220 130" width="220" height="130" style="overflow:visible;">
+                                <!-- Background arc -->
+                                <path d="M 20 120 A 90 90 0 0 1 200 120" fill="none" stroke="rgba(201,148,26,0.12)" stroke-width="18" stroke-linecap="round"/>
+                                <!-- Speed arc -->
+                                <path id="speed-arc" d="M 20 120 A 90 90 0 0 1 200 120" fill="none" stroke="url(#arcGrad)" stroke-width="18" stroke-linecap="round"
+                                    stroke-dasharray="283" stroke-dashoffset="283" style="transition:stroke-dashoffset 1s ease;"/>
+                                <defs>
+                                    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#C9941A"/>
+                                        <stop offset="50%" style="stop-color:#E8B84B"/>
+                                        <stop offset="100%" style="stop-color:#1A5FA3"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Needle -->
+                                <line id="speed-needle" x1="110" y1="120" x2="110" y2="45" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"
+                                    style="transform-origin:110px 120px;transform:rotate(-90deg);transition:transform 1s ease;"/>
+                                <circle cx="110" cy="120" r="8" fill="var(--gold)"/>
+                            </svg>
+                            <!-- Speed number -->
+                            <div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);text-align:center;">
+                                <div id="st-download-num" style="font-family:'Oswald',sans-serif;font-size:2.8rem;font-weight:700;color:var(--gold-bright);line-height:1;">--</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;">Mbps</div>
+                            </div>
+                        </div>
+
+                        <!-- Scale labels -->
+                        <div style="display:flex;justify-content:space-between;max-width:200px;margin:2.5rem auto 0;font-size:0.7rem;color:var(--text-muted);font-family:'Oswald',sans-serif;">
+                            <span>0</span><span>25</span><span>50</span><span>75</span><span>100+</span>
+                        </div>
+
+                        <!-- Metrics Grid -->
+                        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;">
+                            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 0.75rem;text-align:center;">
+                                <div style="color:var(--gold);font-size:1.2rem;margin-bottom:0.3rem;"><i class="fas fa-arrow-down"></i></div>
+                                <div id="st-download" style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);">-- Mbps</div>
+                                <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Download</div>
+                            </div>
+                            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 0.75rem;text-align:center;">
+                                <div style="color:var(--tech-light);font-size:1.2rem;margin-bottom:0.3rem;"><i class="fas fa-arrow-up"></i></div>
+                                <div id="st-upload" style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);">-- Mbps</div>
+                                <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Upload</div>
+                            </div>
+                            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 0.75rem;text-align:center;">
+                                <div style="color:var(--rust);font-size:1.2rem;margin-bottom:0.3rem;"><i class="fas fa-wave-square"></i></div>
+                                <div id="st-ping" style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);">-- ms</div>
+                                <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Ping</div>
+                            </div>
+                        </div>
+
+                        <!-- IP & ISP Info -->
+                        <div id="st-info" style="margin-top:1.5rem;padding:0.75rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);font-size:0.82rem;color:var(--text-muted);display:none;text-align:left;">
+                            <span id="st-ip"></span> &nbsp;·&nbsp; <span id="st-isp"></span>
+                        </div>
+
+                        <!-- Status -->
+                        <div id="st-status" style="margin-top:1rem;font-family:'Oswald',sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);min-height:24px;"></div>
+
+                        <!-- Start Button -->
+                        <button id="st-btn" onclick="startSpeedTest()" style="margin-top:1.5rem;padding:0.9rem 2.5rem;background:var(--grad-gold);color:var(--wood-darkest);border:none;border-radius:100px;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow-gold);">
+                            <i class="fas fa-play"></i> Mulai Tes
+                        </button>
+
+                        <!-- Recommendation -->
+                        <div id="st-recommendation" style="display:none;margin-top:1.5rem;padding:1rem 1.25rem;border-radius:var(--radius-md);border-left:4px solid var(--gold);background:rgba(201,148,26,0.06);text-align:left;font-size:0.88rem;color:var(--text-muted);line-height:1.6;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
      CTA BANNER
      ============================================================ -->
     <div class="cta-banner" aria-label="Call to Action">
@@ -802,7 +1019,7 @@
                 <a href="#contact" class="btn-gold" id="cta-main">
                     <i class="fas fa-headset"></i> Konsultasi Gratis
                 </a>
-                <a href="https://wa.me/6287743453453?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi%20jaringan."
+                <a href="https://wa.me/6285742553216?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi%20jaringan."
                     target="_blank" rel="noopener noreferrer" class="btn-wood" id="cta-wa">
                     <i class="fab fa-whatsapp"></i> Chat WhatsApp
                 </a>
@@ -872,7 +1089,7 @@
                     </div>
 
                     <!-- Quick WA button -->
-                    <a href="https://wa.me/6287743453453?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi."
+                    <a href="https://wa.me/6285742553216?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi."
                         target="_blank" rel="noopener noreferrer" class="btn-tech"
                         style="margin-top:1.5rem;display:inline-flex;" id="contact-wa-btn">
                         <i class="fab fa-whatsapp"></i> Chat Langsung di WhatsApp
@@ -975,7 +1192,7 @@
                                 class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link" aria-label="Facebook" title="Facebook"><i
                                 class="fab fa-facebook"></i></a>
-                        <a href="https://wa.me/6287743453453" class="social-link" aria-label="WhatsApp"
+                        <a href="https://wa.me/6285742553216" class="social-link" aria-label="WhatsApp"
                             title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="#" class="social-link" aria-label="YouTube" title="YouTube"><i
                                 class="fab fa-youtube"></i></a>
@@ -1013,7 +1230,7 @@
                         <li>
                             <span class="footer-link">
                                 <i class="fas fa-phone"></i>
-                                <span style="color:rgba(245,237,214,0.55);font-size:0.875rem;">0877-4345-3453</span>
+                                <span style="color:rgba(245,237,214,0.55);font-size:0.875rem;">0857-4255-3216</span>
                             </span>
                         </li>
                         <li>
@@ -1060,7 +1277,7 @@
         <button id="fab-top" class="fab fab-top" aria-label="Kembali ke atas" title="Kembali ke Atas">
             <i class="fas fa-chevron-up"></i>
         </button>
-        <a href="https://wa.me/6287743453453?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi%20jaringan."
+        <a href="https://wa.me/6285742553216?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi%20jaringan."
             target="_blank" rel="noopener noreferrer" class="fab fab-wa" id="fab-whatsapp"
             aria-label="Chat WhatsApp Smart Network" title="Chat WhatsApp">
             <i class="fab fa-whatsapp"></i>
