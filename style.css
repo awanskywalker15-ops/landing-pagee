@@ -1132,6 +1132,18 @@ footer {
 .fab:hover { transform: scale(1.15) translateY(-2px); }
 .fab-wa { background: linear-gradient(135deg,#25D366,#128C7E); box-shadow: 0 8px 25px rgba(37,211,102,0.4); }
 .fab-wa:hover { box-shadow: 0 15px 35px rgba(37,211,102,0.5); }
+.fab-music {
+  background: var(--grad-gold); color: var(--wood-darkest);
+  box-shadow: var(--shadow-gold);
+  border: 1px solid var(--border-gold);
+}
+.fab-music.playing i {
+  animation: rotateMusic 3s linear infinite;
+}
+@keyframes rotateMusic {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 .fab-top {
   width: 42px; height: 42px; font-size: 1rem;
   background: var(--grad-gold); color: var(--wood-darkest);

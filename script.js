@@ -556,3 +556,44 @@ function showRecommendation(dl, ul, ping) {
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+/* ============================================
+   BACKGROUND MUSIC CONTROLLER
+   ============================================ */
+const bgMusic  = $('#bg-music');
+const musicFab = $('#fab-music');
+const musicIcon = musicFab?.querySelector('i');
+
+if (bgMusic && musicFab) {
+  let isPlaying = false;
+
+  const toggleMusic = async () => {
+    if (isPlaying) {
+      bgMusic.pause();
+      musicFab.classList.remove('playing');
+      if (musicIcon) musicIcon.className = 'fas fa-volume-mute';
+      musicFab.querySelector('.fab-tooltip').textContent = 'Mainkan Musik';
+      isPlaying = false;
+      showToast('🔇 Musik dinonaktifkan', 'info');
+    } else {
+      try {
+        await bgMusic.play();
+        musicFab.classList.add('playing');
+        if (musicIcon) musicIcon.className = 'fas fa-music';
+        musicFab.querySelector('.fab-tooltip').textContent = 'Matikan Musik';
+        isPlaying = true;
+        showToast('🎵 Memutar Musik Wild West!', 'success');
+      } catch (err) {
+        showToast('⚠️ Izinkan browser untuk memutar musik', 'error');
+      }
+    }
+  };
+
+  musicFab.addEventListener('click', toggleMusic);
+
+  // Show a welcome toast inviting user to play the music
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      showToast('🤠 Hidupkan suasana Wild West! Klik tombol musik di kanan bawah 🎵', 'success');
+    }, 4500);
+  });
+}
