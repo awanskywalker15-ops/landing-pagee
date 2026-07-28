@@ -1,126 +1,1307 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Awan Player - Pemutar musik cloud-themed modern dengan desain glassmorphism premium. Nikmati melodi indah dalam suasana langit teduh.">
-    <title>Awan Player - Cozy Cloud Music</title>
+
+    <!-- SEO -->
+    <title>Smart Network – Solusi Jaringan Cepat, Stabil, dan Andal | IT Company</title>
+    <meta name="description"
+        content="Smart Network penyedia layanan jaringan LAN, WiFi, Fiber Optic, CCTV, Server, Mikrotik, Firewall, VPN, dan konsultasi IT profesional untuk rumah, sekolah, kantor, dan perusahaan.">
+    <meta name="keywords"
+        content="Smart Network, jaringan komputer, instalasi LAN, WiFi, Fiber Optic, Mikrotik, CCTV, Server, VPN, IT Consultant, Surakarta">
+    <meta name="author" content="Smart Network">
+    <meta property="og:title" content="Smart Network – Solusi Jaringan Cepat, Stabil, dan Andal">
+    <meta property="og:description" content="Solusi jaringan dan infrastruktur IT profesional untuk semua kebutuhan.">
+    <meta name="theme-color" content="#C9941A">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main Style -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CDN (utility supplement) -->
+    <script>
+        // Pre-init Tailwind config (used for minor utilities)
+        window.tailwind = { config: { corePlugins: { preflight: false } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+
+    <!-- Extra inline style for hero landscape SVG and misc -->
+    <style>
+        /* Hero sky gradient supplement */
+        #hero {
+            background: linear-gradient(180deg, #0D0500 0%, #1A0A02 25%, #2E1503 60%, #3D1F08 80%, #4A2A10 100%);
+        }
+
+        /* Parchment texture for poster */
+        .hero-poster-inner {
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
+                linear-gradient(135deg, #F8EFD4 0%, #EFDFB5 40%, #E8D5A0 70%, #DECA90 100%);
+        }
+
+        /* Sun glow behind mountains */
+        .hero-sun {
+            position: absolute;
+            bottom: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(201, 148, 26, 0.6) 0%, rgba(201, 148, 26, 0.1) 60%, transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Swiper pagination gold */
+        .swiper-pagination-bullet {
+            background: var(--gold-pale) !important;
+            opacity: 0.4;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--gold) !important;
+            opacity: 1;
+        }
+
+        /* Select option dark mode */
+        option {
+            background: #2E1503;
+            color: #F5EDD6;
+        }
+    </style>
 </head>
+
 <body>
-    <!-- Background Animated Blobs/Clouds -->
-    <div class="bg-decor">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="cloud-decor c1"><i class="fa-solid fa-cloud"></i></div>
-        <div class="cloud-decor c2"><i class="fa-solid fa-cloud"></i></div>
-        <div class="cloud-decor c3"><i class="fa-solid fa-cloud"></i></div>
+
+    <!-- ============================================================
+     LOADING SCREEN
+     ============================================================ -->
+    <div id="loading-screen" role="status" aria-live="polite" aria-label="Memuat halaman">
+        <div class="loader-badge">
+            <div class="loader-badge-ring"></div>
+            <div class="loader-badge-inner">🤠</div>
+        </div>
+        <div class="loader-title">Smart Network</div>
+        <div class="loader-sub">Wild West Modern · IT Solutions</div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
     </div>
 
-    <!-- Main Container -->
-    <main class="player-container">
-        <div class="glass-card">
-            
-            <!-- Left Panel: Player Dashboard -->
-            <section class="player-dashboard">
-                <header class="app-header">
-                    <div class="brand">
-                        <i class="fa-solid fa-cloud-sun icon-brand"></i>
-                        <h1>Awan Player</h1>
-                    </div>
-                    <span class="badge">Cozy Vibe</span>
-                </header>
+    <!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Navigasi Utama">
+        <div class="navbar-inner">
 
-                <!-- Disk / Album Cover Cover -->
-                <div class="cover-wrapper">
-                    <div class="cover-glow" id="coverGlow"></div>
-                    <div class="cover-art-container" id="coverContainer">
-                        <img src="cover.png" alt="Cover Album Awan Player" class="cover-img" id="albumArt">
-                    </div>
-                </div>
+            <!-- Logo -->
+            <a href="#hero" class="nav-logo" aria-label="Smart Network – Beranda">
+                <div class="nav-logo-badge" aria-hidden="true">⭐</div>
+                Smart<span style="color:var(--cream-2);font-style:italic;">Network</span>
+            </a>
 
-                <!-- Track Info -->
-                <div class="track-info">
-                    <h2 class="track-title" id="currentTitle">Memuat Lagu...</h2>
-                    <p class="track-artist" id="currentArtist">Memuat Artis...</p>
-                    <div class="track-filename" id="currentFilename">m1.mp3</div>
-                </div>
+            <!-- Desktop Links -->
+            <ul class="nav-links" role="list">
+                <li><a href="#hero" class="nav-link active">Beranda</a></li>
+                <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="#services" class="nav-link">Layanan</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimoni</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
 
-                <!-- Progress Bar -->
-                <div class="progress-container">
-                    <div class="progress-slider" id="progressSlider">
-                        <div class="progress-bar" id="progressBar"></div>
-                        <div class="progress-thumb" id="progressThumb"></div>
-                    </div>
-                    <div class="time-info">
-                        <span id="currentTime">00:00</span>
-                        <span id="totalTime">00:00</span>
-                    </div>
-                </div>
-
-                <!-- Controls -->
-                <div class="player-controls">
-                    <button class="btn-control" id="btnShuffle" title="Acak Lagu">
-                        <i class="fa-solid fa-shuffle"></i>
-                    </button>
-                    <button class="btn-control btn-secondary" id="btnPrev" title="Lagu Sebelumnya">
-                        <i class="fa-solid fa-backward-step"></i>
-                    </button>
-                    <button class="btn-control btn-play" id="btnPlay" title="Putar">
-                        <i class="fa-solid fa-play" id="playIcon"></i>
-                    </button>
-                    <button class="btn-control btn-secondary" id="btnNext" title="Lagu Selanjutnya">
-                        <i class="fa-solid fa-forward-step"></i>
-                    </button>
-                    <button class="btn-control" id="btnRepeat" title="Ulangi Lagu">
-                        <i class="fa-solid fa-repeat"></i>
-                    </button>
-                </div>
-
-                <!-- Volume Control -->
-                <div class="volume-container">
-                    <button class="btn-volume" id="btnMute" title="Bisukan">
-                        <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
-                    </button>
-                    <div class="volume-slider" id="volumeSliderContainer">
-                        <div class="volume-bar" id="volumeBar"></div>
-                        <input type="range" class="volume-input" id="volumeInput" min="0" max="1" step="0.01" value="0.8">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Right Panel: Interactive Playlist -->
-            <section class="playlist-panel">
-                <div class="playlist-header">
-                    <h2>Daftar Putar</h2>
-                    <span class="song-count" id="trackCount">6 Lagu</span>
-                </div>
-                
-                <div class="playlist-songs" id="playlistSongs">
-                    <!-- Song items will be injected by JavaScript -->
-                    <div class="loading-playlist">
-                        <i class="fa-solid fa-circle-notch fa-spin"></i> Memuat daftar lagu...
-                    </div>
-                </div>
-
-                <!-- App Footer Info -->
-                <footer class="app-footer">
-                    <p><i class="fa-regular fa-copyright"></i> 2026 Awan Player. Dibuat dengan cinta.</p>
-                </footer>
-            </section>
+            <!-- Actions -->
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-theme" aria-label="Toggle Dark/Light Mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="#contact" class="btn-nav-cta" id="nav-cta">
+                    <i class="fas fa-star" style="font-size:0.7rem;"></i> Konsultasi Gratis
+                </a>
+                <button id="hamburger" class="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
 
         </div>
-    </main>
+    </nav>
 
-    <!-- JS Logic -->
-    <script src="app.js"></script>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Menu Mobile">
+        <ul class="mobile-nav-links" role="list">
+            <li><a href="#hero" class="mobile-nav-link"><i class="fas fa-home fa-fw"></i> Beranda</a></li>
+            <li><a href="#about" class="mobile-nav-link"><i class="fas fa-hat-cowboy fa-fw"></i> Tentang Kami</a></li>
+            <li><a href="#services" class="mobile-nav-link"><i class="fas fa-tools fa-fw"></i> Layanan</a></li>
+            <li><a href="#portfolio" class="mobile-nav-link"><i class="fas fa-briefcase fa-fw"></i> Portfolio</a></li>
+            <li><a href="#testimonials" class="mobile-nav-link"><i class="fas fa-star fa-fw"></i> Testimoni</a></li>
+            <li><a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope fa-fw"></i> Kontak</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+    <section id="hero" aria-label="Halaman Utama Smart Network">
+
+        <!-- Stars canvas -->
+        <canvas id="star-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;"
+            aria-hidden="true"></canvas>
+
+        <!-- Sun glow -->
+        <div class="hero-sun" aria-hidden="true"></div>
+
+        <!-- Mountain silhouette -->
+        <div class="hero-landscape" aria-hidden="true">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="mtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1A0800;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0D0500;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <!-- Back mountains -->
+                <polygon points="0,200 0,120 180,40 360,90 540,20 720,80 900,10 1080,70 1260,30 1440,80 1440,200"
+                    fill="rgba(30,15,5,0.8)" />
+                <!-- Front hills -->
+                <polygon points="0,200 0,160 200,120 400,140 600,100 800,130 1000,90 1200,125 1440,95 1440,200"
+                    fill="rgba(20,8,2,0.95)" />
+                <!-- Ground -->
+                <rect x="0" y="170" width="1440" height="30" fill="#0D0500" />
+                <!-- Cactus 1 -->
+                <rect x="100" y="130" width="8" height="45" fill="#1A0800" rx="2" />
+                <rect x="86" y="148" width="14" height="6" fill="#1A0800" rx="2" />
+                <rect x="94" y="140" width="6" height="14" fill="#1A0800" rx="2" />
+                <!-- Cactus 2 -->
+                <rect x="1300" y="125" width="9" height="50" fill="#1A0800" rx="2" />
+                <rect x="1285" y="143" width="15" height="6" fill="#1A0800" rx="2" />
+                <rect x="1293" y="135" width="6" height="15" fill="#1A0800" rx="2" />
+                <!-- Telegraph pole -->
+                <rect x="680" y="100" width="4" height="75" fill="#2E1503" />
+                <rect x="665" y="108" width="34" height="3" fill="#2E1503" />
+            </svg>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-inner" style="position:relative;z-index:2;">
+
+            <!-- Left: Wanted-style poster -->
+            <div data-aos="fade-right" data-aos-delay="200">
+                <div class="hero-poster">
+                    <div class="hero-poster-inner">
+                        <div class="poster-wanted">★ Layanan Terpercaya ★</div>
+
+                        <h1 class="poster-title">
+                            Smart<br>
+                            <span class="highlight">Network</span>
+                        </h1>
+
+                        <div class="poster-subtitle">
+                            — Solusi Jaringan Cepat, Stabil &amp; Andal —
+                        </div>
+
+                        <p class="poster-desc">
+                            Kami menyediakan solusi jaringan, internet, CCTV, server, dan infrastruktur IT terbaik
+                            untuk rumah, sekolah, kantor, hingga perusahaan.<br>
+                            <span id="typing-text"
+                                style="color:var(--tech);font-weight:600;border-right:2px solid var(--tech);padding-right:2px;"></span>
+                        </p>
+
+                        <div class="poster-reward">
+                            <div class="poster-reward-label">Konsultasi Gratis Tersedia</div>
+                            <div class="poster-reward-value">Tim Profesional · Bersertifikat · Bergaransi</div>
+                        </div>
+
+                        <div class="poster-buttons">
+                            <a href="#contact" class="btn-gold" id="hero-cta-1">
+                                <i class="fas fa-headset"></i> Konsultasi Gratis
+                            </a>
+                            <a href="https://wa.me/6285742553216" target="_blank" rel="noopener noreferrer"
+                                class="btn-wood" id="hero-cta-2">
+                                <i class="fab fa-whatsapp"></i> Hubungi Kami
+                            </a>
+                        </div>
+
+                        <div class="poster-stamp" aria-hidden="true">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Stats -->
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
+                <div class="hero-stat-card">
+                    <div class="hero-stat-icon"><i class="fas fa-users"></i></div>
+                    <div>
+                        <div class="hero-stat-num counter" data-target="500" data-suffix="+">500+</div>
+                        <div class="hero-stat-lbl">Klien Puas</div>
+                    </div>
+                </div>
+                <div class="hero-stat-card">
+                    <div class="hero-stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div>
+                        <div class="hero-stat-num counter" data-target="1000" data-suffix="+">1000+</div>
+                        <div class="hero-stat-lbl">Proyek Selesai</div>
+                    </div>
+                </div>
+                <div class="hero-stat-card">
+                    <div class="hero-stat-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div>
+                        <div class="hero-stat-num counter" data-target="8" data-suffix=" Tahun">8 Tahun</div>
+                        <div class="hero-stat-lbl">Pengalaman</div>
+                    </div>
+                </div>
+                <div class="hero-stat-card">
+                    <div class="hero-stat-icon"><i class="fas fa-star"></i></div>
+                    <div>
+                        <div class="hero-stat-num counter" data-target="99" data-suffix="%">99%</div>
+                        <div class="hero-stat-lbl">Tingkat Kepuasan</div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /hero-inner -->
+
+        <a href="#about" class="hero-scroll" aria-label="Scroll ke bawah">
+            <span>Scroll</span><i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- ============================================================
+     STATS STRIP
+     ============================================================ -->
+    <div class="stats-strip" aria-label="Statistik Smart Network">
+        <div class="container wood-texture-overlay">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="stat-num counter" data-target="500" data-suffix="+">500+</span>
+                    <span class="stat-lbl">Klien Aktif</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="stat-num counter" data-target="1000" data-suffix="+">1.000+</span>
+                    <span class="stat-lbl">Proyek Selesai</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="stat-num counter" data-target="30" data-suffix="+">30+</span>
+                    <span class="stat-lbl">Teknisi Handal</span>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="stat-num counter" data-target="99" data-suffix="%">99%</span>
+                    <span class="stat-lbl">Kepuasan Klien</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+     ABOUT SECTION
+     ============================================================ -->
+    <section id="about" aria-label="Tentang Smart Network">
+        <div class="container">
+            <div class="about-grid">
+
+                <!-- Visual Card -->
+                <div data-aos="fade-right">
+                    <div class="about-card-wrapper">
+                        <div class="about-card-inner" style="padding-top: 0; padding-left: 0; padding-right: 0; overflow: hidden;">
+                            <img src="cihuy.jpg" alt="Tim Smart Network" style="width: 100%; height: 240px; object-fit: cover; margin-bottom: 1.5rem;">
+                            <div style="padding: 0 2.5rem 3rem;">
+                                <div class="about-card-badge" aria-hidden="true" style="margin-top: -3.5rem; position: relative; z-index: 2; border: 4px solid var(--surface);">🤠</div>
+                                <h3>Mitra IT Andalan Anda</h3>
+                            <p>
+                                <strong>Smart Network</strong> hadir sejak 2016 sebagai mitra teknologi terpercaya
+                                bagi rumah, sekolah, kantor, dan perusahaan di seluruh Indonesia.
+                            </p>
+                            <p>
+                                Didukung teknisi bersertifikat Mikrotik, Cisco, dan CompTIA Network+, kami menghadirkan
+                                solusi jaringan yang cepat, stabil, dan aman sesuai kebutuhan Anda.
+                            </p>
+
+                            <!-- Mini badge strip -->
+                            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;">
+                                <span
+                                    style="padding:0.3rem 0.75rem;background:rgba(201,148,26,0.12);border:1px solid rgba(201,148,26,0.25);border-radius:100px;font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">MTCNA
+                                    Certified</span>
+                                <span
+                                    style="padding:0.3rem 0.75rem;background:rgba(26,95,163,0.12);border:1px solid rgba(26,95,163,0.25);border-radius:100px;font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--tech-light);">CCNA
+                                    Certified</span>
+                                <span
+                                    style="padding:0.3rem 0.75rem;background:rgba(201,148,26,0.12);border:1px solid rgba(201,148,26,0.25);border-radius:100px;font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Garansi
+                                    Layanan</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="about-content" data-aos="fade-left">
+                    <div class="section-badge">
+                        <i class="fas fa-star"></i> Tentang Kami
+                    </div>
+                    <h2 class="section-title">Teknologi Modern, <em>Pelayanan Bintang Lima</em></h2>
+                    <div class="title-ornament">
+                        <div class="title-ornament-line"></div>
+                        <i class="fas fa-star title-ornament-star"></i>
+                        <i class="fas fa-hat-cowboy title-ornament-star"
+                            style="font-size:1rem;color:var(--wood-pale);"></i>
+                        <i class="fas fa-star title-ornament-star"></i>
+                        <div class="title-ornament-line"></div>
+                    </div>
+
+                    <p>
+                        Smart Network adalah perusahaan penyedia jasa IT profesional yang berkomitmen menghadirkan
+                        infrastruktur digital berkualitas. Kami melayani mulai dari instalasi jaringan sederhana
+                        hingga solusi enterprise yang kompleks.
+                    </p>
+                    <p>
+                        Dengan pengalaman lebih dari 8 tahun dan lebih dari 1.000 proyek yang berhasil diselesaikan,
+                        kami menjadi pilihan utama untuk kebutuhan jaringan dan IT Anda.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="about-feat">
+                            <div class="about-feat-icon"><i class="fas fa-award"></i></div>
+                            <div class="about-feat-text">
+                                <strong>Teknisi Bersertifikat Resmi</strong>
+                                <span>Mikrotik, Cisco CCNA, CompTIA Network+</span>
+                            </div>
+                        </div>
+                        <div class="about-feat">
+                            <div class="about-feat-icon"><i class="fas fa-headset"></i></div>
+                            <div class="about-feat-text">
+                                <strong>Support 24/7</strong>
+                                <span>Hotline darurat selalu siap membantu</span>
+                            </div>
+                        </div>
+                        <div class="about-feat">
+                            <div class="about-feat-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="about-feat-text">
+                                <strong>Garansi Pekerjaan</strong>
+                                <span>Jaminan kualitas dan garansi resmi</span>
+                            </div>
+                        </div>
+                        <div class="about-feat">
+                            <div class="about-feat-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="about-feat-text">
+                                <strong>Respons Cepat ≤ 2 Jam</strong>
+                                <span>Penanganan masalah kritis prioritas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-gold" id="about-cta">
+                        <i class="fas fa-phone"></i> Hubungi Tim Kami
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+     SERVICES SECTION
+     ============================================================ -->
+    <section id="services" aria-label="Layanan Smart Network">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-tools"></i> Layanan Kami</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    Solusi IT <span>Lengkap & Andal</span>
+                </h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
+                    Dari instalasi jaringan hingga keamanan siber — kami siap menangani semua kebutuhan infrastruktur IT
+                    Anda dengan standar profesional.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="service-icon-wrap gold"><i class="fas fa-ethernet"></i></div>
+                    <h3>Instalasi Jaringan LAN</h3>
+                    <p>Pemasangan kabel UTP/STP, konfigurasi switch & router untuk jaringan LAN yang handal dan
+                        terstruktur.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon-wrap tech"><i class="fas fa-wifi"></i></div>
+                    <h3>Instalasi WiFi</h3>
+                    <p>Setup WiFi enterprise — access point, coverage mapping, SSID management, dan bandwidth control
+                        optimal.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="service-icon-wrap gold"><i class="fas fa-route"></i></div>
+                    <h3>Konfigurasi MikroTik</h3>
+                    <p>RouterOS Mikrotik — routing, firewall, bandwidth management, hotspot, VPN, dan QoS untuk performa
+                        optimal.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 4 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon-wrap tech"><i class="fas fa-project-diagram"></i></div>
+                    <h3>Fiber Optic</h3>
+                    <p>Instalasi fiber optic — penarikan kabel, splicing, terminasi, untuk koneksi ultra-cepat dan
+                        latency rendah.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="service-icon-wrap rust"><i class="fas fa-video"></i></div>
+                    <h3>CCTV</h3>
+                    <p>Instalasi sistem CCTV IP Camera, DVR/NVR, remote monitoring, dan integrasi keamanan gedung
+                        profesional.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 6 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon-wrap wood"><i class="fas fa-server"></i></div>
+                    <h3>Server</h3>
+                    <p>Instalasi & konfigurasi server fisik/virtual — Windows Server, Linux, Active Directory, file
+                        server, web server.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 7 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="service-icon-wrap gold"><i class="fas fa-wrench"></i></div>
+                    <h3>Maintenance Jaringan</h3>
+                    <p>Perawatan berkala, monitoring proaktif, troubleshooting, dan perbaikan jaringan untuk uptime
+                        maksimal.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 8 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon-wrap rust"><i class="fas fa-fire-alt"></i></div>
+                    <h3>Firewall & Keamanan</h3>
+                    <p>Konfigurasi firewall hardware/software — filtering, NAT, DMZ, IDS/IPS, dan policy keamanan
+                        enterprise.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 9 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="service-icon-wrap tech"><i class="fas fa-lock"></i></div>
+                    <h3>VPN</h3>
+                    <p>Implementasi VPN site-to-site dan remote access — enkripsi data, akses aman antar cabang dan WFH.
+                    </p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+                <!-- 10 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon-wrap gold"><i class="fas fa-user-tie"></i></div>
+                    <h3>Konsultasi IT</h3>
+                    <p>Konsultasi strategis — audit jaringan, perencanaan teknologi, dan rekomendasi solusi terbaik
+                        untuk bisnis Anda.</p>
+                    <div class="service-card-footer"><i class="fas fa-arrow-right"></i> Selengkapnya</div>
+                </div>
+
+            </div><!-- /services-grid -->
+        </div>
+    </section>
+
+    <!-- ============================================================
+     PORTFOLIO SECTION
+     ============================================================ -->
+    <section id="portfolio" aria-label="Portfolio Proyek Smart Network">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-briefcase"></i> Portfolio</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    Proyek yang <span>Sudah Kami Kerjakan</span>
+                </h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-hat-cowboy title-ornament-star" style="font-size:1rem;color:var(--wood-pale);"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
+                    Ratusan proyek telah kami selesaikan dengan standar kualitas tinggi — dari skala rumahan hingga
+                    enterprise.
+                </p>
+            </div>
+
+            <div class="portfolio-grid">
+
+                <!-- 1 -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-img" style="background:linear-gradient(135deg,#1A0800,#3D1503);">
+                        <i class="fas fa-ethernet portfolio-img-icon"></i>
+                        <div class="portfolio-overlay">
+                            <button class="portfolio-overlay-btn" id="pf-detail-1">Lihat Detail</button>
+                        </div>
+                        <span class="portfolio-badge">LAN & Fiber</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Instalasi Jaringan Kampus 500 Titik</h3>
+                        <p>Pemasangan 500+ titik LAN dan fiber optic backbone untuk seluruh gedung kampus dengan
+                            manajemen terpusat.</p>
+                        <div class="portfolio-client"><i class="fas fa-building"></i> Universitas Nusantara, Surakarta
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="portfolio-img" style="background:linear-gradient(135deg,#1A0A00,#2E1A02);">
+                        <i class="fas fa-wifi portfolio-img-icon"></i>
+                        <div class="portfolio-overlay">
+                            <button class="portfolio-overlay-btn" id="pf-detail-2">Lihat Detail</button>
+                        </div>
+                        <span class="portfolio-badge">WiFi Enterprise</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>WiFi Seamless Hotel 200 Kamar</h3>
+                        <p>Desain dan implementasi WiFi enterprise 200 kamar hotel — SSID management, guest portal,
+                            bandwidth control.</p>
+                        <div class="portfolio-client"><i class="fas fa-hotel"></i> Hotel Bintang Lima, Solo</div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-img" style="background:linear-gradient(135deg,#200500,#3D0A00);">
+                        <i class="fas fa-video portfolio-img-icon"></i>
+                        <div class="portfolio-overlay">
+                            <button class="portfolio-overlay-btn" id="pf-detail-3">Lihat Detail</button>
+                        </div>
+                        <span class="portfolio-badge">CCTV System</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>CCTV 150 Kamera Mall</h3>
+                        <p>Instalasi 150 IP CCTV dengan sistem NVR terpusat, analitik AI, dan integrasi keamanan gedung
+                            pusat belanja.</p>
+                        <div class="portfolio-client"><i class="fas fa-store"></i> Solo Grand Mall</div>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="portfolio-img" style="background:linear-gradient(135deg,#0A0520,#1A0A35);">
+                        <i class="fas fa-server portfolio-img-icon"></i>
+                        <div class="portfolio-overlay">
+                            <button class="portfolio-overlay-btn" id="pf-detail-4">Lihat Detail</button>
+                        </div>
+                        <span class="portfolio-badge">Server & Cloud</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Data Center 20 Server Rack</h3>
+                        <p>Setup data center lengkap — 20 server rack, virtualisasi VMware, backup system, dan
+                            monitoring 24/7.</p>
+                        <div class="portfolio-client"><i class="fas fa-industry"></i> PT. Maju Bersama, Surakarta</div>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-img" style="background:linear-gradient(135deg,#0A1A00,#1A3505);">
+                        <i class="fas fa-project-diagram portfolio-img-icon"></i>
+                        <div class="portfolio-overlay">
+                            <button class="portfolio-overlay-btn" id="pf-detail-5">Lihat Detail</button>
+                        </div>
+                        <span class="portfolio-badge">Fiber Optic</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Fiber Optic Sekolah 15 Gedung</h3>
+                        <p>Instalasi fiber optic backbone 15 gedung sekolah — lab komputer berkecepatan 1 Gbps untuk
+                            SMK.</p>
+                        <div class="portfolio-client"><i class="fas fa-school"></i> SMK Negeri 2 Surakarta</div>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="portfolio-img" style="background:linear-gradient(135deg,#1A0808,#352010);">
+                        <i class="fas fa-route portfolio-img-icon"></i>
+                        <div class="portfolio-overlay">
+                            <button class="portfolio-overlay-btn" id="pf-detail-6">Lihat Detail</button>
+                        </div>
+                        <span class="portfolio-badge">Mikrotik</span>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Jaringan Mikrotik Perkantoran</h3>
+                        <p>Konfigurasi jaringan Mikrotik multi-lantai — VLAN, load balancing dual ISP, hotspot, dan
+                            monitoring terpusat.</p>
+                        <div class="portfolio-client"><i class="fas fa-building"></i> Kantor Pemkot Surakarta</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+     TESTIMONIALS SECTION
+     ============================================================ -->
+    <section id="testimonials" aria-label="Testimoni Klien Smart Network">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-star"></i> Testimoni</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    Kata Mereka tentang <span>Smart Network</span>
+                </h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-quote-left title-ornament-star" style="color:var(--wood-pale);"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+            </div>
+
+            <div class="swiper swiper-testimonial" id="testimonial-swiper" data-aos="fade-up" data-aos-delay="300">
+                <div class="swiper-wrapper">
+
+                    <!-- 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="testimonial-text">Smart Network benar-benar profesional! Jaringan sekolah kami
+                                yang dulu sering bermasalah, kini stabil dan cepat. Teknisi mereka ramah dan sangat
+                                responsif.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">BW</div>
+                                <div>
+                                    <div class="testimonial-name">SUGIYONO, S.Pd, M.Si</div>
+                                    <div class="testimonial-role">Kepala Sekolah, SMK N 2 Surakarta</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="testimonial-text">Kami percayakan seluruh infrastruktur IT kantor kepada Smart
+                                Network. Hasilnya luar biasa — jaringan cepat, CCTV terintegrasi, support 24 jam selalu
+                                sigap!</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar"
+                                    style="background:linear-gradient(135deg,#1A5FA3,#2E82D4);">SR</div>
+                                <div>
+                                    <div class="testimonial-name">Sari Rahayu</div>
+                                    <div class="testimonial-role">IT Manager, PT. Nusantara Jaya</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="testimonial-text">Harga terjangkau dengan kualitas premium. Pemasangan fiber optic
+                                selesai tepat waktu dan langsung terasa perbedaannya. Highly recommended!</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar"
+                                    style="background:linear-gradient(135deg,#8B2500,#5C1800);">DP</div>
+                                <div>
+                                    <div class="testimonial-name">Dimas Pratama</div>
+                                    <div class="testimonial-role">Owner, Warnet Pro Gaming Solo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star-half-alt"></i></div>
+                            <p class="testimonial-text">WiFi hotel kami kini super stabil bahkan di jam sibuk. Tamu-tamu
+                                senang dan rating kami naik drastis. Terima kasih Smart Network!</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar"
+                                    style="background:linear-gradient(135deg,#C9941A,#E8B84B);">AN</div>
+                                <div>
+                                    <div class="testimonial-name">Andi Nugroho</div>
+                                    <div class="testimonial-role">General Manager, Grand Hotel Solo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="testimonial-text">Konsultasi IT-nya sangat membantu! Kami jadi tahu solusi yang
+                                paling efisien dan hemat biaya. Smart Network bukan sekadar vendor, tapi partner IT
+                                kami.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar"
+                                    style="background:linear-gradient(135deg,#1A5FA3,#2E82D4);">RL</div>
+                                <div>
+                                    <div class="testimonial-name">Rizky Lestari</div>
+                                    <div class="testimonial-role">Direktur, CV. Digital Solusi</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /swiper-wrapper -->
+                <div class="swiper-pagination"></div>
+            </div><!-- /swiper -->
+        </div>
+    </section>
+
+    <!-- ============================================================
+     MINI GAME SECTION
+     ============================================================ -->
+    <section id="minigame" aria-label="Mini Game Edukasi Jaringan" style="background:var(--surface-2); padding:5rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-gamepad"></i> Mini Game</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Quiz <span>Edukasi Jaringan</span></h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-gamepad title-ornament-star" style="color:var(--wood-pale);font-size:1rem;"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
+                    Uji pengetahuan jaringan Anda! Jawab <strong>8 soal dengan benar</strong> dan dapatkan <strong style="color:var(--gold);">DISKON 30%</strong> untuk layanan Smart Network.
+                </p>
+            </div>
+
+            <!-- Game Card -->
+            <div data-aos="zoom-in" data-aos-delay="200" style="max-width:720px;margin:0 auto;">
+                <div id="game-box" style="background:var(--surface);border:2px solid var(--border-gold);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+
+                    <!-- Game Header -->
+                    <div style="background:var(--grad-wood);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                        <div style="display:flex;align-items:center;gap:0.75rem;">
+                            <div style="font-size:1.5rem;">🤠</div>
+                            <div>
+                                <div style="font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream-3);">SMART NETWORK</div>
+                                <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-bright);font-weight:700;">Network Quiz Challenge</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:1.5rem;align-items:center;">
+                            <div style="text-align:center;">
+                                <div id="game-score-display" style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold-bright);line-height:1;">0</div>
+                                <div style="font-size:0.7rem;color:var(--cream-3);letter-spacing:0.12em;text-transform:uppercase;">SKOR</div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div id="game-lives" style="font-size:1.3rem;line-height:1;">❤️❤️❤️</div>
+                                <div style="font-size:0.7rem;color:var(--cream-3);letter-spacing:0.12em;text-transform:uppercase;">NYAWA</div>
+                            </div>
+                            <div style="text-align:center;">
+                                <div id="game-q-counter" style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold-bright);line-height:1;">0/10</div>
+                                <div style="font-size:0.7rem;color:var(--cream-3);letter-spacing:0.12em;text-transform:uppercase;">SOAL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div style="height:5px;background:rgba(201,148,26,0.15);">
+                        <div id="game-progress" style="height:100%;width:0%;background:var(--grad-gold);transition:width 0.5s ease;"></div>
+                    </div>
+
+                    <!-- Game Start Screen -->
+                    <div id="game-start" style="padding:3rem 2rem;text-align:center;">
+                        <div style="font-size:4rem;margin-bottom:1rem;">🎯</div>
+                        <h3 style="font-size:1.5rem;color:var(--text-dark);margin-bottom:0.75rem;">Siap Jadi Cowboy Jaringan?</h3>
+                        <p style="color:var(--text-muted);margin-bottom:0.5rem;line-height:1.7;">Jawab <strong>10 soal</strong> tentang dunia jaringan komputer.</p>
+                        <p style="color:var(--text-muted);margin-bottom:2rem;line-height:1.7;">Skor <strong style="color:var(--gold);">≥ 80 poin</strong> → Dapatkan kode diskon <strong style="color:var(--gold);">30%!</strong></p>
+                        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+                            <div style="padding:0.75rem 1.25rem;background:rgba(201,148,26,0.08);border:1px solid var(--border-gold);border-radius:var(--radius-md);font-size:0.85rem;color:var(--text-muted);">✅ 10 Pertanyaan</div>
+                            <div style="padding:0.75rem 1.25rem;background:rgba(201,148,26,0.08);border:1px solid var(--border-gold);border-radius:var(--radius-md);font-size:0.85rem;color:var(--text-muted);">❤️ 3 Nyawa</div>
+                            <div style="padding:0.75rem 1.25rem;background:rgba(201,148,26,0.08);border:1px solid var(--border-gold);border-radius:var(--radius-md);font-size:0.85rem;color:var(--text-muted);">🏆 Diskon 30%</div>
+                        </div>
+                        <button id="game-start-btn" onclick="startGame()" style="padding:0.9rem 2.5rem;background:var(--grad-gold);color:var(--wood-darkest);border:none;border-radius:var(--radius-md);font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow-gold);">
+                            <i class="fas fa-play"></i> Mulai Quiz!
+                        </button>
+                    </div>
+
+                    <!-- Question Screen -->
+                    <div id="game-question" style="padding:2.5rem 2rem;display:none;">
+                        <div id="game-category" style="font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;"></div>
+                        <h3 id="game-q-text" style="font-size:1.2rem;color:var(--text-dark);margin-bottom:2rem;line-height:1.5;min-height:80px;"></h3>
+                        <div id="game-options" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;"></div>
+                        <div id="game-feedback" style="margin-top:1.25rem;padding:0.75rem 1rem;border-radius:var(--radius-md);display:none;font-size:0.88rem;font-weight:600;"></div>
+                    </div>
+
+                    <!-- Result Screen -->
+                    <div id="game-result" style="padding:3rem 2rem;text-align:center;display:none;">
+                        <div id="result-emoji" style="font-size:4rem;margin-bottom:1rem;"></div>
+                        <h3 id="result-title" style="font-size:1.5rem;color:var(--text-dark);margin-bottom:0.5rem;"></h3>
+                        <p id="result-desc" style="color:var(--text-muted);margin-bottom:1.5rem;"></p>
+                        <div id="result-score-box" style="background:rgba(201,148,26,0.08);border:2px solid var(--border-gold);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;"></div>
+                        <div id="result-coupon" style="display:none;background:var(--grad-wood);border-radius:var(--radius-md);padding:1.5rem;margin-bottom:2rem;position:relative;overflow:hidden;">
+                            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,0.03) 10px,rgba(255,255,255,0.03) 20px);"></div>
+                            <div style="position:relative;z-index:1;">
+                                <div style="font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream-3);margin-bottom:0.5rem;">🎉 SELAMAT! Kode Diskon Anda:</div>
+                                <div id="coupon-code" style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--gold-bright);letter-spacing:0.15em;margin-bottom:0.5rem;"></div>
+                                <div style="font-size:0.8rem;color:var(--cream-3);">Tunjukkan kode ini saat menghubungi Smart Network • Berlaku 30 hari</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                            <button onclick="startGame()" style="padding:0.75rem 1.75rem;background:var(--grad-gold);color:var(--wood-darkest);border:none;border-radius:var(--radius-md);font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">
+                                <i class="fas fa-redo"></i> Main Lagi
+                            </button>
+                            <a href="#contact" style="padding:0.75rem 1.75rem;background:var(--grad-tech);color:white;border:none;border-radius:var(--radius-md);font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">
+                                <i class="fas fa-phone"></i> Hubungi Kami
+                            </a>
+                        </div>
+                    </div>
+
+                </div><!-- /game-box -->
+            </div><!-- /game wrapper -->
+        </div>
+    </section>
+
+    <!-- ============================================================
+     SPEED TEST SECTION
+     ============================================================ -->
+    <section id="speedtest" aria-label="Tes Kecepatan Jaringan" style="background:var(--surface);padding:5rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-tachometer-alt"></i> Speed Test</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Tes <span>Kecepatan Jaringan</span></h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-bolt title-ornament-star" style="color:var(--wood-pale);font-size:1rem;"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
+                    Cek seberapa cepat koneksi internet Anda sekarang. Jika hasilnya tidak memuaskan — Smart Network siap membantu!
+                </p>
+            </div>
+
+            <div data-aos="zoom-in" data-aos-delay="200" style="max-width:700px;margin:0 auto;">
+                <div style="background:var(--surface-2);border:2px solid var(--border-gold);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+
+                    <!-- Header -->
+                    <div style="background:var(--grad-wood);padding:1.25rem 2rem;display:flex;align-items:center;gap:0.75rem;">
+                        <div style="width:40px;height:40px;background:var(--grad-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">⚡</div>
+                        <div>
+                            <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold-bright);">Smart Network Speed Test</div>
+                            <div style="font-size:0.75rem;color:var(--cream-3);">Powered by Real-Time Measurement</div>
+                        </div>
+                    </div>
+
+                    <!-- Speedometer -->
+                    <div style="padding:2.5rem 2rem;text-align:center;">
+                        <!-- SVG Gauge -->
+                        <div style="position:relative;width:220px;height:130px;margin:0 auto 1.5rem;">
+                            <svg viewBox="0 0 220 130" width="220" height="130" style="overflow:visible;">
+                                <!-- Background arc -->
+                                <path d="M 20 120 A 90 90 0 0 1 200 120" fill="none" stroke="rgba(201,148,26,0.12)" stroke-width="18" stroke-linecap="round"/>
+                                <!-- Speed arc -->
+                                <path id="speed-arc" d="M 20 120 A 90 90 0 0 1 200 120" fill="none" stroke="url(#arcGrad)" stroke-width="18" stroke-linecap="round"
+                                    stroke-dasharray="283" stroke-dashoffset="283" style="transition:stroke-dashoffset 1s ease;"/>
+                                <defs>
+                                    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#C9941A"/>
+                                        <stop offset="50%" style="stop-color:#E8B84B"/>
+                                        <stop offset="100%" style="stop-color:#1A5FA3"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Needle -->
+                                <line id="speed-needle" x1="110" y1="120" x2="110" y2="45" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"
+                                    style="transform-origin:110px 120px;transform:rotate(-90deg);transition:transform 1s ease;"/>
+                                <circle cx="110" cy="120" r="8" fill="var(--gold)"/>
+                            </svg>
+                            <!-- Speed number -->
+                            <div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);text-align:center;">
+                                <div id="st-download-num" style="font-family:'Oswald',sans-serif;font-size:2.8rem;font-weight:700;color:var(--gold-bright);line-height:1;">--</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;">Mbps</div>
+                            </div>
+                        </div>
+
+                        <!-- Scale labels -->
+                        <div style="display:flex;justify-content:space-between;max-width:200px;margin:2.5rem auto 0;font-size:0.7rem;color:var(--text-muted);font-family:'Oswald',sans-serif;">
+                            <span>0</span><span>25</span><span>50</span><span>75</span><span>100+</span>
+                        </div>
+
+                        <!-- Metrics Grid -->
+                        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;">
+                            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 0.75rem;text-align:center;">
+                                <div style="color:var(--gold);font-size:1.2rem;margin-bottom:0.3rem;"><i class="fas fa-arrow-down"></i></div>
+                                <div id="st-download" style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);">-- Mbps</div>
+                                <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Download</div>
+                            </div>
+                            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 0.75rem;text-align:center;">
+                                <div style="color:var(--tech-light);font-size:1.2rem;margin-bottom:0.3rem;"><i class="fas fa-arrow-up"></i></div>
+                                <div id="st-upload" style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);">-- Mbps</div>
+                                <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Upload</div>
+                            </div>
+                            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 0.75rem;text-align:center;">
+                                <div style="color:var(--rust);font-size:1.2rem;margin-bottom:0.3rem;"><i class="fas fa-wave-square"></i></div>
+                                <div id="st-ping" style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);">-- ms</div>
+                                <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Ping</div>
+                            </div>
+                        </div>
+
+                        <!-- IP & ISP Info -->
+                        <div id="st-info" style="margin-top:1.5rem;padding:0.75rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);font-size:0.82rem;color:var(--text-muted);display:none;text-align:left;">
+                            <span id="st-ip"></span> &nbsp;·&nbsp; <span id="st-isp"></span>
+                        </div>
+
+                        <!-- Status -->
+                        <div id="st-status" style="margin-top:1rem;font-family:'Oswald',sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);min-height:24px;"></div>
+
+                        <!-- Start Button -->
+                        <button id="st-btn" onclick="startSpeedTest()" style="margin-top:1.5rem;padding:0.9rem 2.5rem;background:var(--grad-gold);color:var(--wood-darkest);border:none;border-radius:100px;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;box-shadow:var(--shadow-gold);">
+                            <i class="fas fa-play"></i> Mulai Tes
+                        </button>
+
+                        <!-- Recommendation -->
+                        <div id="st-recommendation" style="display:none;margin-top:1.5rem;padding:1rem 1.25rem;border-radius:var(--radius-md);border-left:4px solid var(--gold);background:rgba(201,148,26,0.06);text-align:left;font-size:0.88rem;color:var(--text-muted);line-height:1.6;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+    <div class="cta-banner" aria-label="Call to Action">
+        <div class="container">
+            <h2 class="cta-title" data-aos="zoom-in">"Siap Memasang Jaringan Terbaik?"</h2>
+            <p class="cta-desc" data-aos="zoom-in" data-aos-delay="100">
+                Hubungi tim cowboy digital kami hari ini — konsultasi gratis, tanpa komitmen.
+                Kami siap hadir ke lokasi Anda!
+            </p>
+            <div class="cta-btns" data-aos="zoom-in" data-aos-delay="200">
+                <a href="#contact" class="btn-gold" id="cta-main">
+                    <i class="fas fa-headset"></i> Konsultasi Gratis
+                </a>
+                <a href="https://wa.me/6285742553216?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi%20jaringan."
+                    target="_blank" rel="noopener noreferrer" class="btn-wood" id="cta-wa">
+                    <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+    <section id="contact" aria-label="Kontak Smart Network">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-aos="fade-up"><i class="fas fa-envelope"></i> Kontak</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    Hubungi <span>Tim Kami</span>
+                </h2>
+                <div class="title-ornament" data-aos="fade-up" data-aos-delay="150">
+                    <div class="title-ornament-line"></div>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <i class="fas fa-envelope title-ornament-star" style="font-size:0.9rem;color:var(--wood-pale);"></i>
+                    <i class="fas fa-star title-ornament-star"></i>
+                    <div class="title-ornament-line"></div>
+                </div>
+                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
+                    Tim kami siap membantu Anda. Isi form atau hubungi langsung via WhatsApp, email, maupun telepon.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- Info -->
+                <div data-aos="fade-right">
+                    <h3 class="contact-info-title">Informasi <em>Kontak</em></h3>
+                    <p>Kami melayani Senin–Sabtu 08.00–20.00 WIB. Hotline darurat tersedia 24/7 untuk klien kontrak
+                        maintenance.</p>
+
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <div class="contact-item-label">Email</div>
+                                <div class="contact-item-value">awanskywalker@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <div class="contact-item-label">Telepon / WA</div>
+                                <div class="contact-item-value">0857-4255-3216</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <div class="contact-item-label">Alamat</div>
+                                <div class="contact-item-value">Pinggir Jurang, dekat SMK Negeri 2 Surakarta</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <div class="contact-item-label">Jam Operasional</div>
+                                <div class="contact-item-value">Senin–Sabtu: 08.00–20.00 WIB</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick WA button -->
+                    <a href="https://wa.me/6285742553216?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi."
+                        target="_blank" rel="noopener noreferrer" class="btn-tech"
+                        style="margin-top:1.5rem;display:inline-flex;" id="contact-wa-btn">
+                        <i class="fab fa-whatsapp"></i> Chat Langsung di WhatsApp
+                    </a>
+                </div>
+
+                <!-- Form -->
+                <div data-aos="fade-left">
+                    <div class="contact-form-box">
+                        <h3 class="form-title">Kirim <em>Pesan</em></h3>
+                        <p class="form-sub">Isi form di bawah — kami akan membalas dalam 1 jam kerja.</p>
+
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="form-name">Nama Lengkap *</label>
+                                    <input type="text" id="form-name" class="form-input" placeholder="Nama Anda"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="form-phone">No. WhatsApp *</label>
+                                    <input type="tel" id="form-phone" class="form-input" placeholder="08xx-xxxx-xxxx"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="form-email">Email</label>
+                                <input type="email" id="form-email" class="form-input" placeholder="email@domain.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="form-service">Layanan yang Dibutuhkan</label>
+                                <select id="form-service" class="form-select">
+                                    <option value="">-- Pilih Layanan --</option>
+                                    <option>Instalasi Jaringan LAN</option>
+                                    <option>Instalasi WiFi</option>
+                                    <option>Konfigurasi MikroTik</option>
+                                    <option>Fiber Optic</option>
+                                    <option>CCTV</option>
+                                    <option>Server</option>
+                                    <option>Maintenance Jaringan</option>
+                                    <option>Firewall & Keamanan</option>
+                                    <option>VPN</option>
+                                    <option>Konsultasi IT</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="form-message">Deskripsi Kebutuhan *</label>
+                                <textarea id="form-message" class="form-textarea"
+                                    placeholder="Ceritakan kebutuhan jaringan Anda — lokasi, skala, dan kondisi saat ini..."
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit" id="contact-submit">
+                                <i class="fas fa-paper-plane"></i> Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div><!-- /contact-grid -->
+
+            <!-- Maps -->
+            <div style="margin-top:4rem;border-radius:var(--radius-xl);overflow:hidden;border:2px solid var(--border-gold);box-shadow:var(--shadow-lg);height:320px;"
+                data-aos="fade-up">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.299055!2d110.8266634!3d-7.5710729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a164e69e3d6b5%3A0x8d8ef08ed1e7c3e6!2sSMK%20Negeri%202%20Surakarta!5e0!3m2!1sid!2sid!4v1695876543000!5m2!1sid!2sid"
+                    width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Lokasi Smart Network – dekat SMK Negeri 2 Surakarta"
+                    aria-label="Peta lokasi Smart Network"></iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+     FOOTER
+     ============================================================ -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="nav-logo" style="font-size:1.4rem;">
+                        <div class="nav-logo-badge">⭐</div>
+                        Smart<span style="color:var(--cream-3);font-style:italic;">Network</span>
+                    </div>
+                    <p class="footer-desc">
+                        Mitra IT terpercaya untuk solusi jaringan, infrastruktur digital, dan teknologi komunikasi
+                        modern.
+                        Melayani dengan sepenuh hati — kecepatan koboi, keandalan sheriff.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook" title="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/6285742553216" class="social-link" aria-label="WhatsApp"
+                            title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube" title="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Nav -->
+                <div>
+                    <h4 class="footer-heading">Navigasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero" class="footer-link"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="#about" class="footer-link"><i class="fas fa-chevron-right"></i> Tentang Kami</a>
+                        </li>
+                        <li><a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> Layanan</a>
+                        </li>
+                        <li><a href="#portfolio" class="footer-link"><i class="fas fa-chevron-right"></i> Portfolio</a>
+                        </li>
+                        <li><a href="#testimonials" class="footer-link"><i class="fas fa-chevron-right"></i>
+                                Testimoni</a></li>
+                        <li><a href="#contact" class="footer-link"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Info -->
+                <div>
+                    <h4 class="footer-heading">Informasi</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <span class="footer-link">
+                                <i class="fas fa-envelope"></i>
+                                <span
+                                    style="color:rgba(245,237,214,0.55);font-size:0.875rem;">awanskywalker@gmail.com</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-link">
+                                <i class="fas fa-phone"></i>
+                                <span style="color:rgba(245,237,214,0.55);font-size:0.875rem;">0857-4255-3216</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-link" style="align-items:flex-start;">
+                                <i class="fas fa-map-marker-alt" style="margin-top:2px;"></i>
+                                <span style="color:rgba(245,237,214,0.55);font-size:0.875rem;line-height:1.5;">Pinggir
+                                    Jurang, dekat SMK Negeri 2 Surakarta</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-link">
+                                <i class="fas fa-clock"></i>
+                                <span style="color:rgba(245,237,214,0.55);font-size:0.875rem;">Sen–Sab: 08.00–20.00
+                                    WIB</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div><!-- /footer-grid -->
+        </div><!-- /container -->
+
+        <!-- Rope divider -->
+        <div class="rope-divider" style="margin-top:3rem;opacity:0.3;"></div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>© 2026 Smart Network. All Rights Reserved. 🤠 Dibuat dengan <span
+                            style="color:var(--gold);">★</span> di Surakarta.</p>
+                    <div class="footer-legal">
+                        <a href="#" id="privacy-link">Privacy Policy</a>
+                        <a href="#" id="terms-link">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="bg-music" src="music.mp3" loop></audio>
+
+    <!-- ============================================================
+     FLOATING BUTTONS
+     ============================================================ -->
+    <div class="floating-btns" aria-label="Quick Actions">
+        <button id="fab-top" class="fab fab-top" aria-label="Kembali ke atas" title="Kembali ke Atas">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button id="fab-music" class="fab fab-music" aria-label="Putar Musik Latar" title="Mainkan Musik">
+            <i class="fas fa-music"></i>
+            <span class="fab-tooltip">Musik Latar</span>
+        </button>
+        <a href="https://wa.me/6285742553216?text=Halo%20Smart%20Network%2C%20saya%20ingin%20konsultasi%20jaringan."
+            target="_blank" rel="noopener noreferrer" class="fab fab-wa" id="fab-whatsapp"
+            aria-label="Chat WhatsApp Smart Network" title="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="fab-tooltip">WhatsApp Kami</span>
+        </a>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+    <!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
 </body>
+
 </html>
